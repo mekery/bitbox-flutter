@@ -206,7 +206,8 @@ class HDNode {
   String toLegacyAddress() => _keyPair.address;
 
   /// Returns HDNode's address in cashAddr format
-  String toCashAddress() => Address.toCashAddress(toLegacyAddress());
+  String toCashAddress({includePrefix: true}) =>
+      Address.toCashAddress(toLegacyAddress(), includePrefix);
 
   HDNode _deriveHardened(int index) {
     return derive(index + HIGHEST_BIT);
